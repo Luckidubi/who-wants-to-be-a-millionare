@@ -6,8 +6,8 @@ export const questionAndAnswers = [
   },
   {
     q: "what is the capital of France",
-    o: ["Paris", "London", "Berlin", "Madrid"],
-    a: 0,
+    o: ["London", "Paris", "Berlin", "Madrid"],
+    a: 1,
   },
   {
     q: "who wrote the novel 'To Kill a Mockingbird'",
@@ -21,13 +21,13 @@ export const questionAndAnswers = [
   },
   {
     q: "which planet is closest to the sun",
-    o: ["Mercury", "Venus", "Mars", "Jupiter"],
-    a: 0,
+    o: [ "Venus", "Mars", "Mercury", "Jupiter"],
+    a: 2,
   },
   {
     q: "which country is known as the 'Land of the Rising Sun'",
-    o: ["Japan", "China", "India", "Thailand"],
-    a: 0,
+    o: ["China", "Japan", "India", "Thailand"],
+    a: 1,
   },
   {
     q: "who painted the famous artwork 'The Starry Night'",
@@ -41,8 +41,8 @@ export const questionAndAnswers = [
   },
   {
     q: "what is the name of the longest river in the world",
-    o: ["Nile", "Amazon", "Yangtze", "Yellow"],
-    a: 0,
+    o: ["Amazon", "Nile", "Yangtze", "Yellow"],
+    a: 1,
   },
   {
     q: "who is considered the father of modern physics",
