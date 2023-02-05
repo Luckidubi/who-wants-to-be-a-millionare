@@ -7,7 +7,7 @@ function Question({ question, options, onSelect, questionIndex }) {
     <>
     <h1 style={{fontSize:"5vw"}}>Who Wants To Be A Millionare!!!</h1>
       <div className="questions-and-answers__item questions-and-answers__item--collapsed">
-        <h2>Question {questionIndex + 1} of {questionAndAnswers.length - 1}</h2>
+        <h2>Question {questionIndex + 1} of {questionAndAnswers.length}</h2>
         <div className="questions-and-answers__header">
           <div className="questions-and-answers__title">
             <p>{question}</p>
