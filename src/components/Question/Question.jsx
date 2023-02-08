@@ -1,13 +1,10 @@
 import React from "react";
 import "./Question.css";
-import { questionAndAnswers } from "../..";
 
-function Question({ question, options, onSelect, questionIndex }) {
+function Question({ question, options, onSelect }) {
   return (
     <>
-    <h1 style={{fontSize:"5vw"}}>Who Wants To Be A Millionare!!!</h1>
       <div className="questions-and-answers__item questions-and-answers__item--collapsed">
-        <h2>Question {questionIndex + 1} of {questionAndAnswers.length}</h2>
         <div className="questions-and-answers__header">
           <div className="questions-and-answers__title">
             <p>{question}</p>
@@ -21,16 +18,14 @@ function Question({ question, options, onSelect, questionIndex }) {
               <label key={index + "sdfs4"}>
                 <input
                   type="radio"
+                  value={option}
                   name={question}
-
-                  onClick={() => onSelect(index)}
+                  onClick={() => onSelect(option)}
                 />
                 {option}
-
               </label>
               <br />
               <br />
-
             </>
           ))}
         </div>

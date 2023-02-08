@@ -8,6 +8,8 @@ function App() {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [completed, setCompleted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+  const [fiftyFifty, setFiftyFifty] = useState(false);
+  const [showFiftyFifty, setShowFiftyFifty] = useState(true);
 
   const totalScore = (score / questionAndAnswers.length) * 100;
 
@@ -16,12 +18,20 @@ function App() {
     setQuestionIndex(0);
     setCompleted(false);
     setGameOver(false);
+    setShowFiftyFifty(true);
   };
   const handleSelect = (e) => {
-    if (e === questionAndAnswers[questionIndex].a) {
+    if (
+      e ===
+      questionAndAnswers[questionIndex].o[questionAndAnswers[questionIndex].a]
+    ) {
       setScore((s) => s + 1);
     }
-    if (e != questionAndAnswers[questionIndex].a) {
+    if (
+      e !=
+      questionAndAnswers[questionIndex].o[questionAndAnswers[questionIndex].a]
+    ) {
+      
       setGameOver(true);
     }
     if (questionIndex === questionAndAnswers.length - 1) {
@@ -29,6 +39,7 @@ function App() {
     } else {
       setQuestionIndex(questionIndex + 1);
     }
+    setFiftyFifty(false);
   };
 
   if (gameOver) {
@@ -41,6 +52,11 @@ function App() {
     );
   }
 
+  const display5050 = () => {
+    setFiftyFifty(true);
+    setShowFiftyFifty(false);
+  };
+
   if (completed) {
     return (
       <p>
@@ -52,10 +68,43 @@ function App() {
     );
   }
 
+  if (fiftyFifty) {
+    let options = questionAndAnswers[questionIndex].o;
+    let correctAns =
+      questionAndAnswers[questionIndex].o[questionAndAnswers[questionIndex].a];
+    let incorrectAns = options.filter((option) => option != correctAns);
+    let random = Math.floor(Math.random() * incorrectAns.length);
+
+    const randomOptions = [
+      questionAndAnswers[questionIndex].o[questionAndAnswers[questionIndex].a],
+      incorrectAns[random],
+    ];
+    return (
+      <>
+        <h2>Choose your final answer</h2>
+        <p>Two wrong options have been removed for you</p>
+        <Question
+          question={questionAndAnswers[questionIndex].q}
+          options={randomOptions}
+          onSelect={handleSelect}
+        />
+      </>
+    );
+  }
+
   return (
     <>
+      <h1 style={{ fontSize: "5vw" }}>Who Wants To Be A Millionare!!!</h1>
+
+      <div className="fifty">
+        <button disabled={!showFiftyFifty} onClick={display5050}>
+          50-50
+        </button>
+      </div>
+      <h2>
+        Question {questionIndex + 1} of {questionAndAnswers.length}
+      </h2>
       <Question
-        questionIndex={questionIndex}
         question={questionAndAnswers[questionIndex].q}
         options={questionAndAnswers[questionIndex].o}
         onSelect={handleSelect}
