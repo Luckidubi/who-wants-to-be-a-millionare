@@ -1,4 +1,4 @@
-export const questionAndAnswers = [
+const questions = [
   {
     q: "when did pele die",
     o: [1991, 1992, 2002, 2022],
@@ -21,7 +21,7 @@ export const questionAndAnswers = [
   },
   {
     q: "which planet is closest to the sun",
-    o: [ "Venus", "Mars", "Mercury", "Jupiter"],
+    o: ["Venus", "Mars", "Mercury", "Jupiter"],
     a: 2,
   },
   {
@@ -60,3 +60,5 @@ export const questionAndAnswers = [
     a: 0,
   },
 ];
+
+export const questionAndAnswers = questions.sort(() => Math.random() - 0.5);
