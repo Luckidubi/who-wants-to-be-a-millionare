@@ -19,6 +19,7 @@ function App() {
     setCompleted(false);
     setGameOver(false);
     setShowFiftyFifty(true);
+    questionAndAnswers.sort(() => Math.random() - 0.5);
   };
   const handleSelect = (e) => {
     if (
@@ -31,7 +32,6 @@ function App() {
       e !=
       questionAndAnswers[questionIndex].o[questionAndAnswers[questionIndex].a]
     ) {
-      
       setGameOver(true);
     }
     if (questionIndex === questionAndAnswers.length - 1) {
